@@ -1,0 +1,41 @@
+html { background-color: green; } 
+body {
+    min-height: 38vh;
+    max-width: 550px;
+    font-family: Arial, sans-serif;
+    background-color: greenyellow; 
+    margin: auto;
+}
+h1 {
+    color: rgb(3, 69, 3); 
+    font-size:36px;
+    text-align: center;
+}
+h2 {
+    font-size:22px;
+    text-align: center;
+}
+label {
+    margin-left: 8px;
+    color: rgb(3, 99, 3); 
+    font-size:22px;
+}
+select {
+    font-size:16px;
+}
+.button {
+    padding: 8px 16px;
+    font-size: 20px;
+}
+input {
+    margin-left: 8px;
+    font-size:16px;
+}
+option {
+    font-size:16px;
+}
+p {
+    margin-left: 8px;
+    color: rgb(3, 99, 3); 
+    font-size:22px;
+}

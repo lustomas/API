@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  {% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% endblock %}
+  </head>
+  <body>
+
+  <h1>Witaj w prostym kalkulatorze walut!</h1>
+  <form action="/calculator" method="POST" id="form" required="required">
+
+    <label>Wybierz walutę, którą chcesz kupić:</label>
+    <select required name="currency" id="currency">
+      {% if currency_name %}
+      <option value="{{currency}}" selected>{{currency_name}}</option>
+      {% endif %}
+      <option value="USD">dolar amerykański</option>
+      <option value="AUD">dolar australijski</option>
+      <option value="CAD">dolar kanadyjski</option>
+      <option value="EUR">euro</option>
+      <option value="HUF">forint (Węgry)</option>
+      <option value="CHF">frank szwajcarski</option>
+      <option value="GBP">funt szterling</option>
+      <option value="JPY">jen (Japonia)</option>
+      <option value="CZK">korona czeska</option>
+      <option value="DKK">korona duńska</option>
+      <option value="NOK">korona norweska</option>
+      <option value="SEK">korona szwedzka</option>
+      <option value="XDR">SDR (MFW)</option>
+    </select>
+    <br></br>
+    <label>Ile waluty chcesz kupić?</label>
+    <input type="number" placeholder="0" id="amount" name="amount" min="0" value="{{amount}}" required="required">
+    <h2><input type="submit" value="Przelicz" class="button"></h2>
+  </form>
+
+  <p>Koszt kupna danej waluty w złotówkach (PLN):</p>
+  <input type="number" placeholder="0" value="{{result}}" readonly>
+
+  </body>
+</html>
