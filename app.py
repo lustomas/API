@@ -22,45 +22,10 @@ def currency_calculator():
             amount = float(amount)
             currency = request.form['currency']
 
-            if currency == 'USD': 
-                rate = rates[0]['ask']
-                currency_name = rates[0]['currency']
-            if currency == 'AUD': 
-                rate = rates[1]['ask']
-                currency_name = rates[1]['currency']
-            if currency == 'CAD': 
-                rate = rates[2]['ask']
-                currency_name = rates[2]['currency']
-            if currency == 'EUR': 
-                rate = rates[3]['ask']
-                currency_name = rates[3]['currency']
-            if currency == 'HUF': 
-                rate = rates[4]['ask']
-                currency_name = rates[4]['currency']
-            if currency == 'CHF': 
-                rate = rates[5]['ask']
-                currency_name = rates[5]['currency']
-            if currency == 'GBP': 
-                rate = rates[6]['ask']
-                currency_name = rates[6]['currency']
-            if currency == 'JPY': 
-                rate = rates[7]['ask']
-                currency_name = rates[7]['currency']
-            if currency == 'CZK': 
-                rate = rates[8]['ask']
-                currency_name = rates[8]['currency']
-            if currency == 'DKK': 
-                rate = rates[9]['ask']
-                currency_name = rates[9]['currency']
-            if currency == 'NOK': 
-                rate = rates[10]['ask']
-                currency_name = rates[10]['currency']
-            if currency == 'SEK': 
-                rate = rates[11]['ask']
-                currency_name = rates[11]['currency']
-            if currency == 'XDR': 
-                rate = rates[12]['ask']
-                currency_name = rates[12]['currency']
+            for i in rates:
+                if currency == i['code']:
+                    rate = i['ask']
+                    currency_name = i['currency'] 
 
             rate = float(rate)
             result = rate * amount
