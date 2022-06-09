@@ -1,16 +1,10 @@
 from flask import Flask, render_template, request
 import requests
   
-response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
-data = response.json()
-
-for i in data:
-    d = dict(i)
-
-r =  d['rates']
-
-for i in r:
-    rates = list(r)
+def get_rates():
+    response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
+    data = response.json()
+    return data[0]["rates"]
 
 app = Flask(__name__)
 
@@ -21,6 +15,7 @@ def currency_calculator():
             amount = request.form['amount']
             amount = float(amount)
             currency = request.form['currency']
+            rates = get_rates()
 
             for i in rates:
                 if currency == i['code']:
